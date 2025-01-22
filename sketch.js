@@ -43,23 +43,18 @@ function draw() {
   textAlign(RIGHT)
   text("Temperature ºF", 40, height / 2)
 
-    
-  // weatherTable.getRowCount()
+  textAlign(RIGHT, CENTER)
+  text(minTemp, 45, height - yPadding)
+  text(maxTemp, 45, yPadding)
   
-  text(weatherTable.getNum(currentRow,currentColumn),width/2,height/2)
-}
-
-function keyPressed() {
-  if( keyCode === DOWN_ARROW ) {
-    currentRow++
-    
-    redraw()
+  noFill()
+  stroke(0,100,255)
+  stroke(2)
+  beginShape()
+  for (let i = 0; i < temperatures.length; i++) {
+    const x = 50 + i * xSpacing;
+    const y = map(temperatures[i], minTemp, maxTemp, height - yPadding, yPadding)
+    vertex(x,y)
   }
-  if( keyCode === RIGHT_ARROW ) {
-    currentColumn++
-    if( currentColumn >= weatherTable.getColumnCount() ) {
-      currentColumn = 1
-    }
-    redraw()
-  }
+  endShape()
 }
