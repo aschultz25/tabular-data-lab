@@ -18,13 +18,18 @@ function setup() {
   createCanvas(400, 400);
   noLoop()
   textAlign(CENTER,CENTER)
+
+  filterDataForSubset()
 }
 
 function draw() {
   background(220);
-  // weatherTable.getRowCount()
-  
-  text(weatherTable.getNum(currentRow,currentColumn),width/2,height/2)
+
+  //title
+  textSise(16)
+  fill(0)
+  text('Average Temperatures for ${subset}', width / 2, 30)
+
 }
 
 function keyPressed() {
