@@ -6,23 +6,30 @@ const weatherURL = "https://raw.githubusercontent.com/fivethirtyeight/data/refs/
 // https://p5js.org/reference/p5/p5.Table/
 let weatherTable
 
-let currentRow = 0
-let currentColumn = 1
+//let currentRow = 0
+//let currentColumn = 1
 
 function preload() {
   weatherTable = loadTable(weatherURL, 'csv', 'header')
 }
 
 function setup() {
-  createCanvas(400, 400);
-  console.log(weatherTable.getRowCount())
-  console.log(weatherTable.columns)
-  //noLoop()
-  //textAlign(CENTER,CENTER)
+  createCanvas(400, 400)
+  noLoop()
+
 }
 
 function draw() {
   background(220);
+  
+    const temperatures = weatherTable.getColumn("actual_mean_temp").map(Number)
+    
+    // graph dimensions
+    const xSpacing = (width - 100) / temperatures.length
+    const yPadding = 50
+    const minTemp = Math.min(...temperatures)
+    const maxTemp = Math.max(...temperatures)
+       
   // weatherTable.getRowCount()
   
   text(weatherTable.getNum(currentRow,currentColumn),width/2,height/2)
