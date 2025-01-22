@@ -15,8 +15,10 @@ function preload() {
 
 function setup() {
   createCanvas(400, 400);
-  noLoop()
-  textAlign(CENTER,CENTER)
+  console.log(weatherTable.getRowCount())
+  console.log(weatherTable.columns)
+  //noLoop()
+  //textAlign(CENTER,CENTER)
 }
 
 function draw() {
