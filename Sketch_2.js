@@ -51,8 +51,12 @@ function draw() {
     vertex(x,y)
   }
   endShape()
-  
 
+  noStroke()
+  fill(0)
+  textAlign(RIGHT, CENTER)
+  text(minTemp, 45, height - 50)
+  text(maxTemp, 45, 50) 
 }
 
 function keyPressed() {
