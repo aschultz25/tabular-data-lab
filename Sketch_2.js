@@ -30,6 +30,11 @@ function draw() {
   fill(0)
   text('Average Temperatures for ${subset}', width / 2, 30)
 
+  stroke(0)
+  line(50, 50, 50, height - 50)
+  line(50, height - 50, width - 50, height - 50)
+  
+
 }
 
 function keyPressed() {
