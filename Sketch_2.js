@@ -72,5 +72,11 @@ function keyPressed() {
     redraw()
   }
 }
-  
+
+function filterDataForSubset() {
+  currentSubsetData = weatherTable.getRows().filter(row => {
+    const date = row.get("date")
+    const month = new Date(date).toLocalstring('default', {month: 'long' })
+    return month === subset
+  })
 }
