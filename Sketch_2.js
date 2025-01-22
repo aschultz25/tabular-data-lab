@@ -33,6 +33,13 @@ function draw() {
   stroke(0)
   line(50, 50, 50, height - 50)
   line(50, height - 50, width - 50, height - 50)
+
+  const temperatures = currentSubsetData.map( row => Number(row.get("actual_mean_temp")))
+  const minTemp = Math.min(...temperatures)
+  const maxTemp = Math.max(...temperatures)
+  
+  const xSpacing = (width - 100) / temperatures.length
+  const yPadding = 50
   
 
 }
