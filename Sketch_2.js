@@ -40,6 +40,17 @@ function draw() {
   
   const xSpacing = (width - 100) / temperatures.length
   const yPadding = 50
+
+  stroke(0, 100, 255)
+  strokeWeight(2)
+  noFill()
+  beginShape()
+  for (let i = 0; i < temperatures.length; i++) {
+    const x = 50 + i * xSpacing
+    const y = map(temperatures[i], minTemp, maxTemp, height - yPadding, yPadding)
+    vertex(x,y)
+  }
+  endShape()
   
 
 }
