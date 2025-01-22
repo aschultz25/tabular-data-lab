@@ -60,16 +60,17 @@ function draw() {
 }
 
 function keyPressed() {
-  if( keyCode === DOWN_ARROW ) {
-    currentRow++
-    
-    redraw()
-  }
   if( keyCode === RIGHT_ARROW ) {
-    currentColumn++
-    if( currentColumn >= weatherTable.getColumnCount() ) {
-      currentColumn = 1
-    }
+    currentSubsetIndex = (currentSubsetIndex - 1 + subsets.length) % subsets.length
+    subset = subsets[currentSubsetIndex]
+    filterDataForSubset()
+    redraw()
+  } else if( keyCode === LEFT_ARROW ) {
+    currentSubsetIndex = (currentSubsetIndex - 1 + subsets.length) % subsets.length
+    subset = subsets[currentSubsetIndex]
+    filterDataForSubset()
     redraw()
   }
+}
+  
 }
