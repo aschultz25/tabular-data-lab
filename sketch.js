@@ -22,14 +22,28 @@ function setup() {
 function draw() {
   background(220);
   
-    const temperatures = weatherTable.getColumn("actual_mean_temp").map(Number)
+  const temperatures = weatherTable.getColumn("actual_mean_temp").map(Number)
     
-    // graph dimensions
-    const xSpacing = (width - 100) / temperatures.length
-    const yPadding = 50
-    const minTemp = Math.min(...temperatures)
-    const maxTemp = Math.max(...temperatures)
-       
+   // graph dimensions
+  const xSpacing = (width - 100) / temperatures.length
+  const yPadding = 50
+  const minTemp = Math.min(...temperatures)
+  const maxTemp = Math.max(...temperatures)
+
+  
+  stroke(0)
+  line(50, yPadding, 50, height-yPadding)
+  line(50, height - yPadding, width - 50, height - yPadding)
+  
+  noStroke()
+  fill(0)
+  textAlign(CENTER)
+  textSize(14)
+  text("Day of Year", width / 2, height - yPadding / 4)
+  textAlign(RIGHT)
+  text("Temperature ºF", 40, height / 2)
+
+    
   // weatherTable.getRowCount()
   
   text(weatherTable.getNum(currentRow,currentColumn),width/2,height/2)
