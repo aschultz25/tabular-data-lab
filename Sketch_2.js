@@ -5,8 +5,10 @@ const weatherURL = "https://raw.githubusercontent.com/fivethirtyeight/data/refs/
 
 // https://p5js.org/reference/p5/p5.Table/
 let weatherTable
-let currentRow = 0
-let currentColumn = 1
+let subset = "January"
+let curentSubsetData = []
+let subsets = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+let currentSubsetIndex = 0
 
 function preload() {
   weatherTable = loadTable(weatherURL, 'csv', 'header')
